@@ -1,0 +1,36 @@
+<div class="row"></div>
+<div class="row">
+  <form class="col s5" action="<?php echo $this->baseUrl('login/logar') ?>" method="post">
+    <div class="center">
+      <h4 class="red-text">Já possui conta?</h4>
+    </div>
+    <div class="input-field">
+      <label for="user">Usuário</label>
+      <input type="text" name="user" id="user"/>
+    </div>
+    <div class="input-field">
+      <label for="pass">Senha</label>
+      <input type="text" name="pass" id="pass"/>
+    </div>
+    <div class="row center">
+      <button class="btn waves-effect waves-light yellow red-text" type="submit" name="action">Entrar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+  <form class="col s5 push-s1" action="" method="post">
+    <div class="center">
+      <h4 class="red-text">Não possui uma conta?</h4>
+    </div><br>
+    <div class="input-field">
+      <label for="user">Email</label>
+      <input type="text" name="email" id="email" required />
+    </div>
+    <div class="row"></div>
+    <div class="row center"><br>
+      <button class="btn waves-effect waves-light yellow red-text" type="submit" name="action">Cadastro
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>

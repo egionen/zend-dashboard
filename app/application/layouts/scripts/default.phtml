@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DashBoard</title>
+  <!--CSS-->
+  <link href="<?php echo $this->baseUrl('visual/materialize/css/materialize.css'); ?>" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="<?php echo $this->baseUrl('visual/materialize/'); ?>" rel="stylesheet">
+  <!-- JQUERY -->
+  <script src="<?php echo $this->baseUrl('visual/jquery-2.2.3.js'); ?>"></script>
+  <script src="<?php echo $this->baseUrl('visual/materialize/js/materialize.js'); ?>"></script>
+  <script>$(document).ready(function(){
+    $('.parallax').parallax();
+  });</script>
+  <?php echo $this->headScript(); ?>
+</head>
+<body>
+  <!-- Fixed navbar -->
+  <nav class="red">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">DashBoard</a>
+    </div>
+  </nav>
+
+  <div class="container"  style="margin-top: 60px;">
+    <?php echo $this->layout()->content; ?>
+  </div>
+</body>
+</html>
