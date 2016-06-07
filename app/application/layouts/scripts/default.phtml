@@ -8,16 +8,25 @@
   <!--CSS-->
   <link href="<?php echo $this->baseUrl('visual/materialize/css/materialize.css'); ?>" rel="stylesheet">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="<?php echo $this->baseUrl('visual/materialize/'); ?>" rel="stylesheet">
+  
   <!-- JQUERY -->
   <script src="<?php echo $this->baseUrl('visual/jquery-2.2.3.js'); ?>"></script>
   <script src="<?php echo $this->baseUrl('visual/materialize/js/materialize.js'); ?>"></script>
+  <script src="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.js'); ?>"></script>
+  <link href="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.css'); ?>" rel="stylesheet">
   <script>$(document).ready(function(){
     $('.parallax').parallax();
   });</script>
   <?php echo $this->headScript(); ?>
 </head>
 <body>
+<?php if(!empty($_SESSION['mensagem']))
+{
+  echo $_SESSION['mensagem'];
+  $_SESSION['mensagem'] = "";
+
+  }
+  ?>
   <!-- Fixed navbar -->
   <nav class="red">
     <div class="nav-wrapper">
