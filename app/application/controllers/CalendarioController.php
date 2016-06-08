@@ -13,7 +13,7 @@ class CalendarioController extends Zend_Controller_Action
      public function formularioAction(){    
         
         $dados = $this->_getAllParams();
-        print_r($dados);
+        
         $modelEvento = new Application_Model_Evento();
         if(!empty($dados['id_aluno']))
         {
@@ -25,7 +25,7 @@ class CalendarioController extends Zend_Controller_Action
 
             $this->view->dados = array_merge($dados, $dadoAluno);
         }
-        print_r($dados);
+        
         if(!empty($dados['id_evento'])){
             $row = $modelEvento->fetchRow('id_evento = '. $dados['id_evento']);
             $this->view->row = $row;

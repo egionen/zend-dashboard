@@ -1,0 +1,8 @@
+A base de cálculo do Imposto de Renda é o total de vencimentos, subtraindose a Contribuição Previdenciária e as outras deduções as quais o beneficiário tem direito (número de dependentes declarados, idade igual ou maior a 65 anos, pagamento de pensão alimentícia, etc). Após a realização das deduções, ao valor obtido aplica-se a alíquota correspondente (de acordo com a tabela progressiva do ano vigente, listada abaixo) com a respectiva parcela a deduzir. Acompanhe o exemplo a partir dos dados do demonstrativo fictício apresentado acima: Total de Vencimentos: R$ 10.480,39 Contribuição Previdenciária: R$ 695,35 Número de dependentes: 1 (valor a deduzir por dependente/2013 = R$ 171,97) Pensão alimentícia: R$ 293,78 Dedução por idade (65 anos): R$ 1.710,78 (valor limite de isenção na tabela progressiva do ano vigente) R$ 10.480,39 - R$ 695,35 - R$ 171,97 - R$ 293,78 - R$ 1.710,78 = R$ 7.608,51 Observação: De acordo com a tabela progressiva de 2013, a alíquota corresponde ao valor acima é de 27,5%, com a parcela a deduzir de R$ 790,58. R$ 7.608,51 x 27,5% - R$ 790,58 = R$ 1.301,76 Valor do Imposto de Renda Retido na Fonte em junho de 2013: R$ 1.301,76 IMPORTANTE: Nos casos de acumulação de aposentadoria e pensão por morte, os cálculos demonstrados acima serão realizados a partir da soma dos vencimentos dos dois benefícios. 
+
+Desenvolva uma aplicação que calcule o imposto de renda. Onde o usuário informará  a renda bruta e números de dependentes. Veja no link o modelo:
+http://www.calculador.com.br/calculo/irrf#sobre
+
+Deverá enviar o arquivo projeto do NetBeans .zip.
+
+Utilizar JSF e BEANS.

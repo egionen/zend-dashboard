@@ -23,9 +23,9 @@ class HomeController extends Zend_Controller_Action
     $modelMateria = new Application_Model_Materia();
     $modelEvento = new Application_Model_Evento();
 
-    $rowMateria = $modelMateria->fetchAll('id_aluno = "'.$_SESSION['id_aluno'].'"');
+    $rowMateria = $modelMateria->fetchAll($modelMateria->select()->where('id_aluno = "'.$_SESSION['id_aluno'].'"')->order('id_materia DESC')->limit(4,0));
     $this->view->materias = $rowMateria;
-    $rowEvento = $modelEvento->fetchAll('id_aluno = "'.$_SESSION['id_aluno'].'"');
+    $rowEvento = $modelEvento->fetchAll($modelEvento->select()->where('id_aluno = "'.$_SESSION['id_aluno'].'"')->order('id_evento DESC')->limit(4,0));
     $this->view->eventos = $rowEvento;
     echo "<pre>";
     

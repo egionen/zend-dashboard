@@ -1,30 +1,59 @@
 <div class="container">
-<div id="erroUser"></div>
-<div id="erroEmail"></div>
-	<h2>Aluno</h2>
-	 <a class="btn red" href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $_SESSION['id_aluno']); ?>"><i class="material-icons">delete</i></a></td>
+	<div id="erroUser"></div>
+	<div id="erroEmail"></div>
+	<div class="row"><h2>Aluno</h2>
+		<?php
+		if($_SESSION['id_aluno'] ==  $this->row['id_aluno']){?>
+		<a class="btn red" href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $_SESSION['id_aluno']); ?>"><i class="material-icons">delete</i></a></td>
+		<?php } ?>
+	</div>
 	<form action="<?php echo $this->baseUrl('aluno/gravar');?>" method="post">
 		<input type="hidden" name="id_aluno" value="<?php echo $this->row['id_aluno']?>"/>
-		<label>Nome : </label><input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>
-		<label>Nasc : </label><input type="text" name="nasc" value="<?php echo $this->row['nasc']?>" required/>
-		<label>Usuário : </label><input type="text" name="user" id="user" value="<?php echo $this->row['user']?>" required/>
-		<label>Senha : </label><input type="password" name="pass" value="<?php echo $this->row['pass']?>" required/>
-		<label>Email : </label><input type="text" name="email" id="email" value="<?php echo $this->row['email']?>" required/>
-		<label>Avatar : </label><input type="text" name="avatar" value="<?php echo $this->row['avatar']?>"/>
-		<br/>
-		<br/>
-		<input type="submit" class="btn btn-success" value="Enviar"/>
+		<div class="input-field">
+			<label>Nome : </label><input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>
+		</div>
+		<div class="input-field">
+			<label for = "nasc"> Data de Nascimento </label>
+			<input type="text" data-field="date" name="nasc" id="nasc" value="<?php echo $this->row['nasc'] ?>" readonly required>
+			<div id="dtBox"></div>
+		</div>
+		<div class="input-field">
+			<label for="user">Usuário : </label><input type="text" name="user" id="user" value="<?php echo $this->row['user']?>" required/>
+		</div>
+		<div class="input-field">
+			<label for="pass"> Senha : </label><input type="password" name="pass" value="<?php echo $this->row['pass']?>" required/>
+		</div>
+		<div class="input-field">
+			<label for="email">Email : </label><input type="text" name="email" id="email" value="<?php echo $this->row['email']?>" required/>
+		</div>
+		
+		<input type="submit" class="btn yellow red-text" value="Aplicar"/>
 	</form>
 </div>
+<br>
 <script type="text/javascript">
 $(function(){
-  $("#user").change(function verificarUser(){
-    $('#erroUser').load('<?php echo $this->baseUrl('login/verificar/user/');?>' + $('#user').val());
-    $('#resultado').html(data);
-    });
-    $("#email").change(function verificarEmail(){
-      $('#erroEmail').load('<?php echo $this->baseUrl('login/verificar/email/');?>' + $('#email').val());
-      $('#resultado').html(data);
-    });
+$("#user").change(function verificarUser(){
+$('#erroUser').load('<?php echo $this->baseUrl('login/verificar/user/');?>' + $('#user').val());
+$('#resultado').html(data);
+});
+$("#email").change(function verificarEmail(){
+$('#erroEmail').load('<?php echo $this->baseUrl('login/verificar/email/');?>' + $('#email').val());
+$('#resultado').html(data);
+});
 });
 </script>
+<div class="container" style="border-top:solid">
+	<form method="post" action="<?php echo $this->baseUrl('aluno/avatar')?>" enctype="multipart/form-data">
+		<div class="file-field input-field">
+			<div class="btn">
+				<span>Avatar</span>
+				<input type="file" name="arquivo">
+			</div>
+			<div class="file-path-wrapper">
+				<input type="text" class="file-path validate" name="arquivo" value="<?php echo $_SESSION['avatar'] ?>">
+			</div>
+		</div>
+		<input type="submit" class="btn red " name="Aplicar">
+	</form>
+</div>

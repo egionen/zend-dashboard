@@ -50,10 +50,28 @@ class AlunoController extends Zend_Controller_Action
         
         $modelAluno->excluir($dados);  
         $this->redirect('aluno/index');
+        }
     }
+    public function avatarAction()
+    {
+
+        print_r($_FILES);
+        $arquivo = $_FILES['arquivo']['name'];
         
-        
-        
-        
+        $ext = pathinfo($_FILES['arquivo']['name'],PATHINFO_EXTENSION);   
+         if($ext != "jpg" && $ext != "png" && $ext != "jpeg"
+            && $ext != "gif" ) {
+                echo "somente imagens";
+                die;
+        }
+        if(move_uploaded_file($_FILES['arquivo']['tmp_name'], 'avatar/' . $_SESSION['id_aluno'] . '.' . $ext))
+        {
+            $destino = array( "avatar" => 'avatar/' . $_SESSION['id_aluno'] . '.' . $ext,);
+            print_r($destino);
+            $modelAluno = new Application_Model_Aluno();
+            $modelAluno->update($destino, 'id_aluno = "'. $_SESSION['id_aluno'].'"');
+            $_SESSION['avatar'] = $destino['avatar'];
+        }
+        $this->redirect('home');
     }
 }

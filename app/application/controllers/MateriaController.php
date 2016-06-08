@@ -16,7 +16,7 @@ class MateriaController extends Zend_Controller_Action
     public function formularioAction(){    
         
         $dados = $this->_getAllParams();
-        print_r($dados);
+        
         $modelMateria = new Application_Model_Materia();
         if(!empty($dados['id_aluno']))
         {
@@ -28,7 +28,6 @@ class MateriaController extends Zend_Controller_Action
 
             $this->view->dados = array_merge($dados, $dadoAluno);
         }
-        print_r($dados);
         if(!empty($dados['id_materia'])){
             $row = $modelMateria->fetchRow('id_materia = '. $dados['id_materia']);
             $this->view->row = $row;
