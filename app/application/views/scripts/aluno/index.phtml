@@ -1,0 +1,32 @@
+<div class="container">
+<div class="row">
+<div class="col s12">
+
+    <h2>Listagem do Perfil</h2>
+    <table>
+        <thead>
+            <tr>
+            <?php if($_SESSION['user'] == "admin"){ ?>
+                <th data-field="actions">Ações</th>
+                <?php } ?>
+                <th data-field="id">ID</th>
+                <th data-field="nome">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->dados as $row){ ?>
+            <tr>
+            <?php if($_SESSION['user'] == "admin"){ ?>
+            <td><a href="<?php echo $this->baseUrl('aluno/formulario/id_aluno/' . $row['id_aluno']); ?>">Alterar</a>
+            <a href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $row['id_aluno']); ?>">Excluir</a></td>
+            <?php } ?>
+        
+                <td><?php echo $row['id_aluno']; ?></td>
+                <td><?php echo $row['nome']; ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

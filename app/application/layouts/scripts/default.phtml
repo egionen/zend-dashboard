@@ -5,15 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DashBoard</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--CSS-->
   <link href="<?php echo $this->baseUrl('visual/materialize/css/materialize.css'); ?>" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <!-- JQUERY -->
+ <!-- JQUERY -->
   <script src="<?php echo $this->baseUrl('visual/jquery-2.2.3.js'); ?>"></script>
   <script src="<?php echo $this->baseUrl('visual/materialize/js/materialize.js'); ?>"></script>
   <script src="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.js'); ?>"></script>
-  <link href="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.css'); ?>" rel="stylesheet">
+  <link href="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.css'); ?>" rel="stylesheet">  
   <script>$(document).ready(function(){
     $('.parallax').parallax();
   });</script>
@@ -27,13 +26,32 @@
 
   }
   ?>
-  <!-- Fixed navbar -->
+  <div class="navbar-fixed">
   <nav class="red">
     <div class="nav-wrapper">
+    <?php if(empty($_SESSION['id_aluno'])){?>
       <a href="#" class="brand-logo center">DashBoard</a>
-    </div>
-  </nav>
+      <?php } ?>
+      <?php 
+        if(!empty($_SESSION['id_aluno']))
+        { ?>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="<?php echo $this->baseUrl('login/unset') ?>"><i class="material-icons">open_in_new</i></a></li>
+      </ul>
+      <ul id="slide-out" class="side-nav fixed">
+      <li><a class="white-text red center" href="<?php echo $this->baseUrl('home')?>" >Dashboard</a></li>
+      <li><a href="<?php echo $this->baseUrl('calendario')?>" >Calendario</a></li>
+      <li><a href="<?php echo $this->baseUrl('materia')?>" >Materias</a></li>
+      <li><a href="<?php echo $this->baseUrl('aluno')?>">Alunos</a></li>
 
+      </ul>
+      <ul  class="left hide-on-med-and-down">
+      
+      </ul>     
+    </div>
+    <?php }?>
+  </nav>
+</div>
   <div class="container"  style="margin-top: 60px;">
     <?php echo $this->layout()->content; ?>
   </div>

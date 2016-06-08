@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row">
+<div class="col s12">
+
+    <h2>Listagem de Eventos</h2>
+    <table>
+        <thead>
+            <tr>
+            	<th data-field="acoes">Ações</th>
+                <th data-field="nome">Nome</th>
+                <th data-field="data">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->dados as $row){ ?>
+            <tr>      
+            <td>
+            	 <a href="<?php echo $this->baseUrl('aluno/formulario/id_aluno/' . $row['id_aluno']); ?>">Alterar</a>
+            <a href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $row['id_aluno']); ?>">Excluir</a>
+
+            </td>
+                <td><?php echo $row['nome']; ?></td>
+                <td><?php echo $row['data']; ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

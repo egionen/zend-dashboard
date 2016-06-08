@@ -10,11 +10,11 @@
     </div>
     <div class="input-field">
       <label for="pass">Senha</label>
-      <input type="text" name="pass" id="pass" required/>
+      <input type="password" name="pass" id="pass" required/>
     </div>
     <div class="row center">
       <button class="btn waves-effect waves-light yellow red-text" type="submit" name="action">Entrar
-        <i class="material-icons right">send</i>
+      <i class="material-icons right">send</i>
       </button>
     </div>
   </form>
@@ -22,31 +22,46 @@
     <div class="center">
       <h4 class="red-text">Não possui uma conta?</h4>
     </div>
-        <div class="input-field">
+    <div class="input-field">
       <label for="nome">Nome</label>
       <input type="text" name="nome" id="nome" required />
     </div>
     <div class="input-field">
       <label for="nasc">Data de Nascimento</label>
-      <input type="date" name="nasc" id="nasc" required />
+      <input type="text" name="nasc" id="nasc" >
     </div>
-    <div class="input-field">
+    <div id="erroUser"></div>
+    <div class="input-field" >
       <label for="user">Usuário</label>
-      <input type="text" name="user" id="user" required />
+      <input type="text" name="user" id="userCadastro" required />
     </div>
     <div class="input-field">
       <label for="pass">Senha</label>
       <input type="password" name="pass" id="pass" required />
     </div>
+    <div id="erroEmail"></div>
     <div class="input-field">
       <label for="email">Email</label>
-      <input type="text" name="email" id="email" required />
+      <input type="text" name="email" id="email" required/>
     </div>
+    
     <div class="row"></div>
     <div class="row center"><br>
       <button class="btn waves-effect waves-light yellow red-text" type="submit" name="action">Cadastro
-        <i class="material-icons right">send</i>
+      <i class="material-icons right">send</i>
       </button>
     </div>
   </form>
 </div>
+<script type="text/javascript">
+$(function(){
+  $("#userCadastro").change(function verificarUser(){
+    $('#erroUser').load('<?php echo $this->baseUrl('login/verificar/user/');?>' + $('#userCadastro').val());
+    $('#resultado').html(data);
+    });
+    $("#email").change(function verificarEmail(){
+      $('#erroEmail').load('<?php echo $this->baseUrl('login/verificar/email/');?>' + $('#email').val());
+      $('#resultado').html(data);
+    });
+});
+</script>
