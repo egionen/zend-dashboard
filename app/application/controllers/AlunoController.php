@@ -34,8 +34,24 @@ class AlunoController extends Zend_Controller_Action
         
         $dados = $this->_getAllParams();
         $modelAluno = new Application_Model_Aluno();
+        $modelEvento = new Application_Model_Evento();
+        $modelMateria = new Application_Model_Materia();
+
+        if($dados['id_aluno'] == $_SESSION['id_aluno']){
+
+            $modelEvento->delete('id_aluno = "'.$_SESSION['id_aluno'].'"');  
+            $modelMateria->delete('id_aluno = "'.$_SESSION['id_aluno'].'"');  
+            $modelAluno->delete('id_aluno = "'.$_SESSION['id_aluno'].'"');  
+
+
+            session_unset();
+            $this->redirect('index');
+        }else{
+        
         $modelAluno->excluir($dados);  
         $this->redirect('aluno/index');
+    }
+        
         
         
         

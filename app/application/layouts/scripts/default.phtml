@@ -8,14 +8,31 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--CSS-->
   <link href="<?php echo $this->baseUrl('visual/materialize/css/materialize.css'); ?>" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('visual/flatpicker/src/DateTimePicker.css') ?>" />
  <!-- JQUERY -->
   <script src="<?php echo $this->baseUrl('visual/jquery-2.2.3.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo $this->baseUrl('visual/flatpicker/src/DateTimePicker.js') ?>"></script>
   <script src="<?php echo $this->baseUrl('visual/materialize/js/materialize.js'); ?>"></script>
   <script src="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.js'); ?>"></script>
-  <link href="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.css'); ?>" rel="stylesheet">  
-  <script>$(document).ready(function(){
+  <link href="<?php echo $this->baseUrl('visual/sweetalert/sweetalert2.css'); ?>" rel="stylesheet"> 
+  <script>
+  $(document).ready(function(){
     $('.parallax').parallax();
   });</script>
+  <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $("#dtBox").DateTimePicker({
+                    dateFormat: "yyyy-mm-dd",
+                    shortDayNames: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+                    shortMonthNames: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                    fullMonthNames: ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                    titleContentDate: "",
+                    setButtonContent: "Aplicar",
+                    clearButtonContent: "Limpar",
+                })
+            });</script> 
+
   <?php echo $this->headScript(); ?>
 </head>
 <body>
@@ -39,10 +56,11 @@
         <li><a href="<?php echo $this->baseUrl('login/unset') ?>"><i class="material-icons">open_in_new</i></a></li>
       </ul>
       <ul id="slide-out" class="side-nav fixed">
-      <li><a class="white-text red center" href="<?php echo $this->baseUrl('home')?>" >Dashboard</a></li>
+      <li><a class="white-text red center" href="<?php echo $this->baseUrl('home')?>"><i class="material-icons">home</i></a></li>
       <li><a href="<?php echo $this->baseUrl('calendario')?>" >Calendario</a></li>
       <li><a href="<?php echo $this->baseUrl('materia')?>" >Materias</a></li>
       <li><a href="<?php echo $this->baseUrl('aluno')?>">Alunos</a></li>
+      <li><a href="<?php echo $this->baseUrl('download')?>">Downloads</a></li>
 
       </ul>
       <ul  class="left hide-on-med-and-down">

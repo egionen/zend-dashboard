@@ -1,44 +1,49 @@
-<div class="container">
-	<div class="row">
-		<div class="col s6">
-			<div class="card red darken-1">
-				<div class="card-content white-text">
-					<span class="card-title">Minhas Materias</span>
-					<p><a>Materia</a></p>
-					<p><a>Materia</a></p>
-					<p><a>Materia</a></p>
-					<p><a>Materia</a></p>
+<div class='container'>
+	<div class='row'>
+		<div class='col s6'>
+			<div class='card red darken-1'>
+				<div class='card-content white-text'>
+					<span class='card-title'>Minhas Materias</span>
+					<?php 
+					foreach($this->materias as $row){
+					 ?>
+						<p><i class="material-icons">get_app</i><a class="yellow-text" href=<?php echo $this->baseUrl('download/index/id_materia/' . $row['id_materia']);?>><?php echo $row['nome']?></a></p>
+					<?php }?>
+
 				</div>
-				<div class="card-action">
-					<a class="yellow-text" href="<?php echo $this->baseUrl('materia/index') ?>">Ver todos as Materias</a>
+				<div class='card-action'>
+					<a class='yellow-text' href='<?php echo $this->baseUrl('materia/index') ?>'>Ver todos as Materias</a>
 				</div>
 			</div>
 		</div>
-		<div class="col s6">
-			<div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s4">
-              <img src="http://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+		<div class='col s6'>
+			<div class='card-panel grey lighten-5 z-depth-1'>
+          <div class='row valign-wrapper'>
+            <div class='col s4'>
+              <img src='http://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg' alt='' class='circle responsive-img'> <!-- notice the 'circle' class -->
             </div>
-            <div class="col s10">
-              <span class="black-text">
-                <h5>meu nome</h5>
-                <p>Lorem Ipsum</p>
-                <p>Lorem Ipsum</p>
+            <div class='col s10'>
+              <span class='black-text'>
+                <h5><?php echo $_SESSION['nome'] ?></h5>
+                <p><a class='btn-floating btn-large waves-effect waves-light red' href='<?php echo $this->baseUrl('aluno/formulario/id_aluno/'. $_SESSION['id_aluno'])?>'><i class='material-icons'>mode_edit</i></a></p>
               </span>
             </div>
           </div>
         </div>
 		</div>
-		<div class="col s10">
-			<div class="card blue darken-1">
-				<div class="card-content white-text">
-					<span class="card-title">Próximos eventos</span>
-					<p>evento mais proximo</p>
-					<p>evento antes desse</p>
+		<div class='col s10'>
+			<div class='card blue darken-1'>
+				<div class='card-content white-text'>
+					<span class='card-title'>Próximos eventos</span>
+					<?php 
+					foreach($this->eventos as $row){
+					 ?>
+						<p><a class="yellow-text" href="<?php echo $this->baseUrl('calendario/formulario/id_evento/' . $row['id_evento']); ?>"><?php echo $row['nome']?></a></p>
+					<?php }?>
+					
 				</div>
-				<div class="card-action">
-					<a class="white-text" href="<?php echo $this->baseUrl('calendario/index') ?>">Ver meu calendario</a>
+				<div class='card-action'>
+					<a class='white-text' href='<?php echo $this->baseUrl('calendario/index') ?>'>Ver meu calendario</a>
 				</div>
 				
 			</div>

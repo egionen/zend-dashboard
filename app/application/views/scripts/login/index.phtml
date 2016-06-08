@@ -1,3 +1,10 @@
+<?php if(!empty($_SESSION['mensagem']))
+{
+  echo $_SESSION['mensagem'];
+  $_SESSION['mensagem'] = "";
+
+  }
+  ?>
 <div class="row"></div>
 <div class="row">
   <form class="col s5" action="<?php echo $this->baseUrl('login/logar') ?>" method="post">
@@ -27,12 +34,13 @@
       <input type="text" name="nome" id="nome" required />
     </div>
     <div class="input-field">
-      <label for="nasc">Data de Nascimento</label>
-      <input type="text" name="nasc" id="nasc" >
+    <label for = "nasc" class = "black-text" > Data de Nascimento </label>
+      <input type="text" data-field="date" name="nasc" id="nasc" class="black-text" readonly required>
+        <div id="dtBox"></div>
     </div>
     <div id="erroUser"></div>
     <div class="input-field" >
-      <label for="user">Usuário</label>
+      <label for="#userCadastro">Usuário</label>
       <input type="text" name="user" id="userCadastro" required />
     </div>
     <div class="input-field">

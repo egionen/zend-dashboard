@@ -1,0 +1,30 @@
+<div class="container">
+
+
+	<h2>Evento</h2>
+	<form action="<?php echo $this->baseUrl('calendario/gravar');?>" method="post">
+		<input type="text" name="id_aluno" value="<?php echo $this->dados['id_aluno']; ?>">
+		<input type="hidden" name="id_evento" value="<?php echo $this->row['id_evento']?>"/>
+		<label>Nome : </label><input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>
+		<label>Descrição : </label><input type="text" name="descricao" value="<?php echo $this->row['descricao']?>" required/>
+		<label for = "data" class = "black-text" >Data</label>
+        <input type="text" data-field="date" name="data" id="data" value="<?php echo $this->row['data']?>" class="black-text" readonly required>
+        <div id="dtBox"></div>
+
+		<br/>
+		<br/>
+		<input type="submit" class="btn btn-success" value="Enviar"/>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+  $("#user").change(function verificarUser(){
+    $('#erroUser').load('<?php echo $this->baseUrl('login/verificar/user/');?>' + $('#user').val());
+    $('#resultado').html(data);
+    });
+    $("#email").change(function verificarEmail(){
+      $('#erroEmail').load('<?php echo $this->baseUrl('login/verificar/email/');?>' + $('#email').val());
+      $('#resultado').html(data);
+    });
+});
+</script>

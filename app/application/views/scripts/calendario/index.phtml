@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
 <div class="col s12">
-
+    <a class="btn-floating red" href="<?php echo $this->baseUrl('calendario/formulario/id_aluno/'.$_SESSION['id_aluno']); ?>"><i class="material-icons">add</i></a>
     <h2>Listagem de Eventos</h2>
     <table>
         <thead>
@@ -15,8 +15,8 @@
             <?php foreach($this->dados as $row){ ?>
             <tr>      
             <td>
-            	 <a href="<?php echo $this->baseUrl('aluno/formulario/id_aluno/' . $row['id_aluno']); ?>">Alterar</a>
-            <a href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $row['id_aluno']); ?>">Excluir</a>
+            	 <a href="<?php echo $this->baseUrl('calendario/formulario/id_evento/' . $row['id_evento']); ?>"><i class="material-icons red-text">mode_edit</i></a>
+                <a href="<?php echo $this->baseUrl('calendario/excluir/id_evento/' . $row['id_evento']); ?>"><i class="material-icons red-text">delete</i></a>
 
             </td>
                 <td><?php echo $row['nome']; ?></td>
@@ -28,3 +28,5 @@
 </div>
 </div>
 </div>
+
+

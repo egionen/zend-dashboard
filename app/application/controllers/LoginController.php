@@ -75,25 +75,15 @@ class LoginController extends Zend_Controller_Action
     	$dados = $this->_getAllParams();
     	$modelAluno = new Application_Model_Aluno();
     	if($modelAluno->gravar($dados)){
-            $row = $modelAluno->fetchAll('user = "' . $dados['user']. '"');
-                echo "chegou aki";
-                $_SESSION = array(
-                    "id_aluno" => $row['id_aluno'],
-                    "nome" => $row['nome'],
-                    "nasc" => $row['nasc'],
-                    "user" => $row['user'],
-                    "pass" => $row['pass'],
-                    "avatar" => $row['avatar'],
-                    "email" => $row['email'],
-                    "mensagem" => "<script type='text/javascript'>
-                        swal(
-                        'Logado com sucesso',
-                        'Bem Vindo ".$dados['nome']."!',
-                        'success'
-                        )
-                        </script>",
-                    );
-            $this->redirect('home/index');
+            $_SESSION['mensagem'] = "
+            <script type='text/javascript'>
+            swal(
+            'Cadastrado',
+            'Faça o Login agora',
+            'success'
+            )
+            </script>";
+            $this->redirect('login');
         }
             
     }

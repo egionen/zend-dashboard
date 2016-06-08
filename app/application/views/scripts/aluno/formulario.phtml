@@ -1,7 +1,8 @@
 <div class="container">
 <div id="erroUser"></div>
 <div id="erroEmail"></div>
-	<h2>Formulario</h2>
+	<h2>Aluno</h2>
+	 <a class="btn red" href="<?php echo $this->baseUrl('aluno/excluir/id_aluno/' . $_SESSION['id_aluno']); ?>"><i class="material-icons">delete</i></a></td>
 	<form action="<?php echo $this->baseUrl('aluno/gravar');?>" method="post">
 		<input type="hidden" name="id_aluno" value="<?php echo $this->row['id_aluno']?>"/>
 		<label>Nome : </label><input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>

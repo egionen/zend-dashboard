@@ -1,4 +1,30 @@
 <div class="container">
-	AQUI SERA LISTADO E CADASTRADO TODOS AS MATERIAS  DO ALUNO COM ISSO SERA PERMITIDO AS INSERÇÃO DE EVENTOS DESSA MATERIA COMO POR EXEMPLO PROVAS OU TRABALHOS ALEM DE MOSTAR OS DOWNLOADS QUE ESTARAO LOCALIZADOS EM CADA MATERIA
+<div class="row">
+<div class="col s12">
+<a href="<?php echo $this->baseUrl('materia/formulario/id_aluno/'.$_SESSION['id_aluno']); ?>">Inserir</a>
+    <h2>Listagem de Materias</h2>
+    <table>
+        <thead>
+            <tr>
+            	<th data-field="acoes">Ações</th>
+                <th data-field="nome">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->dados as $row){ ?>
+            <tr>      
+            <td>
+            	 <a href="<?php echo $this->baseUrl('materia/formulario/id_materia/' . $row['id_materia']); ?>">Alterar</a>
+                <a href="<?php echo $this->baseUrl('materia/excluir/id_materia/' . $row['id_materia']); ?>">Excluir</a>
 
+            </td>
+                <td><?php echo $row['nome']; ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </div>
+</div>
+</div>
+
+
