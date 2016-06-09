@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+<div class="col s12">
+
+    <h2>Teus Diarios</h2>
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th data-field="id">Ações</th>
+                <th data-field="nome">Texto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->dados as $row){ ?>
+            <tr>
+            <td>
+            <a href="<?php echo $this->baseUrl('home/excluir/id_diario/' . $row['id_diario']); ?>"><i class="material-icons red-text">delete</i></a></td>
+            </td>
+            
+        
+                <td><?php echo $row['texto']; ?></td>
+                
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

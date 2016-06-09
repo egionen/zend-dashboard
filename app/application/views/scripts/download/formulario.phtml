@@ -1,0 +1,24 @@
+<div class="container">
+	<div id="erroUser"></div>
+	<div id="erroEmail"></div>
+	<div class="row"><h2>Material</h2>		
+	<form action="<?php echo $this->baseUrl('download/gravar');?>" method="post">
+		<input type="hidden" name="id_download" value="<?php echo $this->row['id_download']?>"/>
+		<input type="hidden" name="id_materia" value="<?php echo $this->dados['id_materia']?>"/>
+		<div class="input-field">
+			<label>Nome : </label>
+			<input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>
+		</div>
+		<div class="input-field">
+			<label for="descricao">Descrição : </label>
+			<input type="text" name="descricao"  value="<?php echo $this->row['descricao']?>" required/>
+		</div>
+		<div class="input-field">
+			<label for="link">Link :</label>
+			<input type="text" name="link" value="<?php echo $this->row['link']?>" required/>
+		<input type="submit" class="btn yellow red-text" value="Aplicar"/>
+	</form>
+</div>
+</div>
+
+<br>

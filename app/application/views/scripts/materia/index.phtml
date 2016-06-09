@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
 <div class="col s12">
-<a href="<?php echo $this->baseUrl('materia/formulario/id_aluno/'.$_SESSION['id_aluno']); ?>">Inserir</a>
+<a class="btn-floating red" href="<?php echo $this->baseUrl('materia/formulario/id_aluno/'.$_SESSION['id_aluno']); ?>"><i class="material-icons">add</i></a>
     <h2>Listagem de Materias</h2>
     <table>
         <thead>
@@ -14,11 +14,11 @@
             <?php foreach($this->dados as $row){ ?>
             <tr>      
             <td>
-            	 <a href="<?php echo $this->baseUrl('materia/formulario/id_materia/' . $row['id_materia']); ?>">Alterar</a>
-                <a href="<?php echo $this->baseUrl('materia/excluir/id_materia/' . $row['id_materia']); ?>">Excluir</a>
+            	 <a href="<?php echo $this->baseUrl('materia/formulario/id_materia/' . $row['id_materia']); ?>"><i class="material-icons red-text">mode_edit</i></a>
+                <a href="<?php echo $this->baseUrl('materia/excluir/id_materia/' . $row['id_materia']); ?>"><i class="material-icons red-text">delete</i></a>
 
             </td>
-                <td><?php echo $row['nome']; ?></td>
+                <td><a href="<?php echo $this->baseUrl('download/index/id_materia/'.$row['id_materia']) ?>"><?php echo $row['nome']; ?></a></td>
             </tr>
             <?php } ?>
         </tbody>

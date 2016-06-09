@@ -30,6 +30,20 @@
 				</div>
 			</div>
 		</div>
+		<div class='col s6'>
+			<div class='card red darken-1 z-depth-3'>
+				<div class='card-content green white-text'>
+				<form action="<?php echo $this->baseUrl('home/diario')?>" method="post">
+					<span class='card-title'>Diario</span>
+					<div class="input-field">
+						<input type="hidden" name="id_aluno" value="<?php echo $_SESSION['id_aluno'] ?>">
+						<textarea id="icon_prefix2" name="texto" class="materialize-textarea"></textarea>
+						<input type="submit" class="btn red" value="Enviar">
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div class='col s10'>
 			<div class='card blue darken-1 z-depth-3' >
 				<div class='card-content white-text'>

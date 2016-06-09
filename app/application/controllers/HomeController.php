@@ -30,4 +30,34 @@ class HomeController extends Zend_Controller_Action
     echo "<pre>";
     
 	}
+  public function diarioAction()
+  {
+
+
+     $dados = $this->_getAllParams();
+        $modelDiario = new Application_Model_Diario();
+        $modelDiario->gravar($dados); 
+        $this->redirect('home');
+  }
+  public function diariosAction()
+  {
+
+    $modelDiario = new Application_Model_Diario();
+        
+        
+        //passar variavel para a camada view.
+        $rowSet = $modelDiario->fetchAll('id_aluno = "'.$_SESSION['id_aluno'].'"');
+        $this->view->dados = $rowSet;
+     
+  }
+  public function excluirAction(){
+        
+        $dados = $this->_getAllParams();
+        $modelDiario = new Application_Model_Diario();
+        $modelDiario->excluir($dados);  
+        $this->redirect('home');
+        
+        
+        
+    }
 }

@@ -28,6 +28,10 @@ class AlunoController extends Zend_Controller_Action
         $dados = $this->_getAllParams();
         $modelAluno = new Application_Model_Aluno();
         $modelAluno->gravar($dados);  
+        
+        
+        $_SESSION = array_merge($_SESSION,$dados);
+        
         $this->redirect('aluno/index');
     }
     public function excluirAction(){

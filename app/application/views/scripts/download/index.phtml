@@ -1,4 +1,39 @@
-
 <div class="container">
-<p><?php echo $this->rowSet['id_materia'] ?></p>
+<div class="row">
+<div class="col s12">
+
+
+<a class="btn-floating red" href="<?php echo $this->baseUrl('download/formulario/id_materia/'.$this->dadosMateria['id_materia']); ?>"><i class="material-icons">add</i></a>
+    <h2>Materiais para <?php echo $this->dadosMateria['nome'] ?></h2>
+    <table class="highlight">
+        <thead>
+            <tr>
+               <th data-field="actions">Ações</th>
+        
+                <th data-field="id">Assunto</th>
+                <th data-field="nome">Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->dadosDown as $row){ 
+
+
+
+
+            	?>
+            <tr>        
+              <td>
+            	 
+                <a href="<?php echo $this->baseUrl('download/excluir/id_download/' . $row['id_download']); ?>"><i class="material-icons red-text">delete</i></a>
+
+            </td>
+                <td><?php echo $row['nome']; ?></td>
+                <td><a href="<?php echo $row['link']; ?>">Link</a></td>
+                
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
 </div>

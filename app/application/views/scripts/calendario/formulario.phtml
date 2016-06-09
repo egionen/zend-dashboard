@@ -3,13 +3,19 @@
 
 	<h2>Evento</h2>
 	<form action="<?php echo $this->baseUrl('calendario/gravar');?>" method="post">
-		<input type="hidden" name="id_aluno" value="<?php echo $this->dados['id_aluno']; ?>">
+		<input type="hidden" name="id_aluno" value="<?php echo $this->dados['id_aluno']; ?>"/>
 		<input type="hidden" name="id_evento" value="<?php echo $this->row['id_evento']?>"/>
+		<div class="input-field">
 		<label>Nome : </label><input type="text" name="nome" value="<?php echo $this->row['nome']?>" required/>
+		</div>
+		<div class="input-field">
 		<label>Descrição : </label><input type="text" name="descricao" value="<?php echo $this->row['descricao']?>" required/>
+		</div>
+		<div class="input-field">
 		<label for = "data">Data</label>
-        <input type="text" data-field="date" name="data" id="data" value="<?php echo $this->row['data']?>" readonly required>
+        <input type="text" data-field="date" name="data" id="data" value="<?php echo $this->row['data']?>" readonly required/>
         <div id="dtBox"></div>
+        </div>
 
 		<br/>
 		<br/>
